@@ -1,26 +1,26 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import axios from 'axios';
 
 export default function LoginForm(props) {
     const usernameRef = useRef();
     const passwordRef = useRef();
 
+    const [loading, setLoading] = useState(false)
+
     const submit = () => {
+        setLoading(true)
         axios.post('http://localhost:5000/api/login', {
             username: usernameRef.current.value,
             password: passwordRef.current.value,
         })
             .then(res => {
-                // debugger
-                // SUCCESS! Credentials are valid:
-                //   1- Put the token string in local storage under a 'token' key
+                setLoading(false)
                 localStorage.setItem('payload', res.data.payload)
-                //   2- Redirect users to the /quotes route
+                
                 props.history.push('/friends');
             })
             .catch(error => {
-                // debugger
-                // Alert a sensible message pulled from the error object
+                setLoading(false)
                 alert(error.response.data.message);
             });
     };
@@ -34,7 +34,7 @@ export default function LoginForm(props) {
             </div>
 
             <div>
-                <button onClick={submit}>Submit</button>
+                <button onClick={submit}>{loading ? "Loading" : "Submit"}</button>
             </div>
         </div>
     );
