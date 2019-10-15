@@ -18,18 +18,18 @@ export function App(props) {
     <div className='container'>
       <nav className='nav-items'>
 
-        <div className='anchor'>
+        <div>
           <NavLink exact to='/api/login'>Login</NavLink>
         </div>
 
-        <div className='anchor'>
+        <div>
           <NavLink to='/friends'>Friends</NavLink>
         </div>
 
-        <div className='anchor'>
+        <div>
           <NavLink to='/addnewfriend'>Add New Friend</NavLink>
         </div>
-        
+
         <div>
           <button onClick={onLogout}>Logout</button>
         </div>
