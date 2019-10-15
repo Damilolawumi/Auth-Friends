@@ -3,6 +3,7 @@ import { Route, NavLink, withRouter, Redirect } from 'react-router-dom';
 import LoginForm from '../src/component/LoginForm';
 import Friends from '../src/component/Friends';
 import AddNewFriend from './component/AddNewFriend';
+import './App.css';
 
 
 export function App(props) {
@@ -15,14 +16,24 @@ export function App(props) {
 
   return (
     <div className='container'>
-      <nav>
-        <span>
-          <NavLink exact to='/api/login'>Login</NavLink>
-          <NavLink to='/friends'>Friends</NavLink>
-          <NavLink to='/addnewfriend'>Add New Friend</NavLink>
-        </span>
+      <nav className='nav-items'>
 
-        <button onClick={onLogout}>Logout</button>
+        <div className='anchor'>
+          <NavLink exact to='/api/login'>Login</NavLink>
+        </div>
+
+        <div className='anchor'>
+          <NavLink to='/friends'>Friends</NavLink>
+        </div>
+
+        <div className='anchor'>
+          <NavLink to='/addnewfriend'>Add New Friend</NavLink>
+        </div>
+        
+        <div>
+          <button onClick={onLogout}>Logout</button>
+        </div>
+
       </nav>
 
       <main>

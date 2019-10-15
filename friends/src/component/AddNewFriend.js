@@ -26,11 +26,11 @@ export default function AddNewFriend(props) {
     return (
         <div className='login'>
             <div className='login-inputs'>
-                name <input ref={name} type="text" />
+                Name <input ref={name} type="text" />
                 <br />
-                age <input ref={age} type="text" />
+                Age <input ref={age} type="text" />
                 <br/>
-                email <input ref={email} type="text" />
+                Email <input ref={email} type="text" />
             </div>
 
             <div>

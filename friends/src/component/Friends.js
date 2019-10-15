@@ -23,7 +23,7 @@ export default function Friends(props) {
         <div className='friends'>
             {
                 friendList.map(friend => (
-                    <li key={friend.id}>{friend.name}</li>
+                    <li key={friend.id}>My Friends name is {friend.name} and {friend.name} is {friend.age} years old.</li>
                 ))
             }
         </div>
